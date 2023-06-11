@@ -25,7 +25,7 @@ export class AppComponent {
   async send() {
     const textValue = this.searchText.value;
     console.log('Text value:', textValue);
-    await axios.get('http://ec2-3-122-229-15.eu-central-1.compute.amazonaws.com/search?text=' + textValue)
+    await axios.get('https://ec2-3-122-229-15.eu-central-1.compute.amazonaws.com/search?text=' + textValue)
     .then((resp) => {
       console.log(resp)
       this.results = resp.data;
