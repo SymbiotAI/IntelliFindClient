@@ -1,0 +1,46 @@
+<ion-app>
+  <!-- <ion-router-outlet></ion-router-outlet> -->
+    <!-- <ion-router-outlet></ion-router-outlet> -->
+    <ion-header>
+      <ion-toolbar>
+        <div class="toolbar">
+          <ion-button fill="clear" (click)="file.click()">
+            <ion-icon  slot="icon-only" name="cloud-upload-outline"></ion-icon>
+            
+          </ion-button>
+          <input type="file" multiple (change)="loadImageFromDevice($event)" class="hidden" id="file" #file>
+  
+          <ion-title slot="start">IntelliFind</ion-title>
+          <ion-button fill="clear" >
+            NEW SEARCH
+          </ion-button>
+        </div>
+        <div class="search">
+          <!-- <ion-searchbar></ion-searchbar> -->
+          <!-- <ion-input label="Outline input" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input> -->
+          <ion-textarea
+            placeholder="Type in your request"
+            [autoGrow]="true"
+            labelPlacement="floating"
+            
+            fill="outline"
+            >
+          </ion-textarea>
+          <ion-button fill="clear">
+            <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <!-- <div class="results">
+        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
+        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
+        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
+        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
+        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
+        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
+        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
+      </div> -->
+    </ion-content>
+</ion-app>

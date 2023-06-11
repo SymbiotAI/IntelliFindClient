@@ -1,0 +1,17 @@
+.toolbar{
+  display: flex;
+  align-items: center;
+}
+
+.search{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.results{
+  display: flex;
+  flex-direction: column;
+}
+.hidden{
+  display: none;
+}

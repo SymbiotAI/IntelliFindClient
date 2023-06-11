@@ -1,0 +1,7 @@
+{
+  "name": "intellifind",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
