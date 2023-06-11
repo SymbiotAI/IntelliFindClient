@@ -4,13 +4,13 @@
     <ion-header>
       <ion-toolbar>
         <div class="toolbar">
+
+          <input type="file" multiple (change)="loadImageFromDevice($event)" class="hidden" id="file" #file>
+
+          <ion-title slot="start">IntelliFind</ion-title>
           <ion-button fill="clear" (click)="file.click()">
             <ion-icon  slot="icon-only" name="cloud-upload-outline"></ion-icon>
-            
           </ion-button>
-          <input type="file" multiple (change)="loadImageFromDevice($event)" class="hidden" id="file" #file>
-  
-          <ion-title slot="start">IntelliFind</ion-title>
           <ion-button fill="clear" >
             NEW SEARCH
           </ion-button>
@@ -18,29 +18,59 @@
         <div class="search">
           <!-- <ion-searchbar></ion-searchbar> -->
           <!-- <ion-input label="Outline input" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input> -->
-          <ion-textarea
+          <ion-textarea #searchText class="text-area"
             placeholder="Type in your request"
             [autoGrow]="true"
             labelPlacement="floating"
-            
             fill="outline"
             >
           </ion-textarea>
-          <ion-button fill="clear">
-            <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+          <ion-button fill="clear" (click)="send()">
+            <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
           </ion-button>
         </div>
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <!-- <div class="results">
-        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
-        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
-        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
-        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
-        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
-        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
-        <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
-      </div> -->
+      <div class="results" *ngIf="results.length > 0">
+        <ion-list>
+          <ion-item-group>
+            <ion-item *ngFor="let res of results">
+              <ion-text >
+                <pre>{{res.page_content}}</pre>
+              </ion-text>
+            </ion-item>
+            <!-- <ion-item>
+              <ion-text>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+              </ion-text>
+            </ion-item>
+            <ion-item>
+              <ion-text>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+              </ion-text>
+            </ion-item>
+            <ion-item>
+              <ion-text>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+              </ion-text>
+            </ion-item> -->
+          </ion-item-group>
+      
+        </ion-list>
+      </div>
+      <div *ngIf="results.length == 0" class="no-results">
+
+        <ion-icon size="large" slot="icon-only" name="library-outline"></ion-icon>
+        <ion-text>Upload files to build a personal database and get AI processed search results in one click </ion-text>
+      </div>
+      <!-- <ion-toast
+        [isOpen]="isToastOpen"
+        message="This toast will close in 5 seconds"
+        [duration]="5000"
+        (didDismiss)="setOpen(false)"
+      >
+      </ion-toast> -->
     </ion-content>
 </ion-app>
+

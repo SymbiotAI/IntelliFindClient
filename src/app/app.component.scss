@@ -4,9 +4,10 @@
 }
 
 .search{
-  margin-top: 20px;
+  margin: 10px 0px 10px 16px;
   display: flex;
   align-items: center;
+
 }
 .results{
   display: flex;
@@ -14,4 +15,28 @@
 }
 .hidden{
   display: none;
+}
+ion-item{
+  margin: 20px 10px 0px 10px;
+
+  ion-text{
+    margin-bottom: 20px;
+  }
+
+}
+// ion-textarea{
+//   white-space: pre-wrap;
+//   overflow-wrap: break-word;
+//   max-height: 20px; 
+//   resize: none;
+// }
+.no-results{
+  //height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  ion-text{
+    text-align: center;
+  }
 }
