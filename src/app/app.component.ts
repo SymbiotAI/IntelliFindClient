@@ -16,22 +16,29 @@ export class AppComponent {
     private http: HttpClient,
     private s3Service: S3ServiceService) {
   }
-  isToastOpen = false;
+  isToastOpen = true;
+  message:any = '';
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
   }
-  results: { page_content: string } [] = [];
+  results: any = [];
   @ViewChild('searchText') searchText!: IonTextarea;
   async send() {
     const textValue = this.searchText.value;
     console.log('Text value:', textValue);
-    await axios.get('https://ec2-3-122-229-15.eu-central-1.compute.amazonaws.com/search?text=' + textValue)
-    .then((resp) => {
-      console.log(resp)
-      this.results = resp.data;
+    try{
+
+     const resp = await this.http.get(`http://3.122.229.15/search?text=${encodeURI(textValue || '')}`).toPromise()
+    console.log(resp)
+      this.results = resp;
       console.log(this.results)
-    })
-    .catch((resp) => {console.error(resp)})
+      this.message = resp;
+  } catch(e){
+    console.error(e)
+    this.message = JSON.stringify(e)
+  }
+    // .catch((resp) => {console.error(resp)
+    //   this.message = JSON.stringify(resp)})
     // Do something with the text value
   }
   async loadImageFromDevice(event: any) {

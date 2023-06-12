@@ -16,8 +16,7 @@
           </ion-button>
         </div>
         <div class="search">
-          <!-- <ion-searchbar></ion-searchbar> -->
-          <!-- <ion-input label="Outline input" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input> -->
+    
           <ion-textarea #searchText class="text-area"
             placeholder="Type in your request"
             [autoGrow]="true"
@@ -40,21 +39,6 @@
                 <pre>{{res.page_content}}</pre>
               </ion-text>
             </ion-item>
-            <!-- <ion-item>
-              <ion-text>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-              </ion-text>
-            </ion-item>
-            <ion-item>
-              <ion-text>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-              </ion-text>
-            </ion-item>
-            <ion-item>
-              <ion-text>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-              </ion-text>
-            </ion-item> -->
           </ion-item-group>
       
         </ion-list>
@@ -64,6 +48,7 @@
         <ion-icon size="large" slot="icon-only" name="library-outline"></ion-icon>
         <ion-text>Upload files to build a personal database and get AI processed search results in one click </ion-text>
       </div>
+      <div>{{message}}</div>
       <!-- <ion-toast
         [isOpen]="isToastOpen"
         message="This toast will close in 5 seconds"
